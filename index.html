@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <script src="main.js"></script>
-    <title>Twitter page</title> <!--temporary-->
+    <title>Twitter page</title>
+    <!--temporary-->
   </head>
   <body>
-
-    
     <div class="navbar" role="navigation">
-      <a class="skip-link" href="#mainContent">Jump to mainContent</a>
+      <a class="skip-link" href="#tweet-container">Jump to tweet-container</a>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Moments</a></li>
@@ -17,92 +16,93 @@
         <li><a href="#">Messages</a></li>
 
         <div class="nav-right">
-          <button type="button"><b>Tweet</b></button>
+          <button type="button" onclick="ping()"><b>Tweet</b></button>
         </div>
 
         <div class="nav-center">
-          <img src="./images/twitter-logo.png" alt="twitter logo" width="30" height="30">
+          <img
+            src="./images/twitter-logo.png"
+            alt="twitter logo"
+            width="30"
+            height="30"
+          />
         </div>
-
       </ul>
-
     </div>
-    
-    
 
-    
-      <!-- TODO: Create HTML elements for Twitter mockup inside body -->
+    <!-- TODO: Create HTML elements for Twitter mockup inside body -->
     <div class="content-wrapper">
       <div class="content-left">
         <div class="cover-picture">
-          <img class="banner" src="./images/ratatouille-banner.png" alt="Ratatouille banner">
+          <img
+            class="banner"
+            src="./images/ratatouille-banner.png"
+            alt="Ratatouille banner"
+          />
         </div>
         <div class="profile-picture">
-          <img class="pfp" src="./images/ratatouille.jpg" alt="Profile picture">
-          <p><strong><u>Remy</u></strong> <br><span style="color: gray;">@remy</span></p>
+          <img
+            class="pfp"
+            src="./images/ratatouille.jpg"
+            alt="Profile picture"
+          />
+          <p>
+            <strong><u>Remy</u></strong> <br /><span style="color: gray"
+              >@remy</span
+            >
+          </p>
         </div>
         <div class="profile-stats">
-          <p>Tweets <br> <span style="color: #33a3ff;">5049</span></p>
-          <p>Following <br> <span style="color: #33a3ff;">324</span></p>
-          <p>Followers <br> <span style="color: #33a3ff;">809</span></p>
+          <p>
+            Tweets <br />
+            <span style="color: #33a3ff">5049</span>
+          </p>
+          <p>
+            Following <br />
+            <span style="color: #33a3ff">324</span>
+          </p>
+          <p>
+            Followers <br />
+            <span style="color: #33a3ff">809</span>
+          </p>
         </div>
       </div>
-      <div class="content-center" id="mainContent" role="main">
-        <div class="tweet">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
+      <div class="content-center" id="tweet-container" role="main">
+        <!-- <div class="tweet">
+          <img src="./images/ratatouille.jpg" alt="Profile Picture" />
           <div class="tweet-details">
-            <p class="username"><strong>Remy</strong> <span style="color: gray;">@remy Nov 19</span></p>
-            <p class="tweet-text">I'm taking this class called CS 110 and the TAs are all so <b>cool</b>!</p>
+            <p class="username">
+              <strong>Remy</strong>
+              <span style="color: gray">@remy Nov 19</span>
+            </p>
+            <p class="tweet-text">
+              I'm taking this class called CS 110 and the TAs are all so
+              <b>cool</b>!
+            </p>
           </div>
-        </div>
-        <div class="tweet">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
-          <div class="tweet-details">
-            <p class="username"><strong>Remy</strong> <span style="color: gray;">@remy Nov 19</span></p>
-            <p class="tweet-text">It's 2007. You just got home from elementary school. Your mom has pizza bagels in the oven. Ratatouille is in theaters. Life is good</p>
-          </div>
-        </div>
-        <div class="tweet">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
-          <div class="tweet-details">
-            <p class="username"><strong>Remy</strong> <span style="color: gray;">@remy Nov 19</span></p>
-            <p class="tweet-text">Let's make some pasta!</p>
-          </div>
-        </div>
-        <div class="tweet">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
-          <div class="tweet-details">
-            <p class="username"><strong>Remy</strong> <span style="color: gray;">@remy Nov 19</span></p>
-            <p class="tweet-text">Let's make some pasta!</p>
-          </div>
-        </div>
-        <div class="tweet">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
-          <div class="tweet-details">
-            <p class="username"><strong>Remy</strong> <span style="color: gray;">@remy Nov 19</span></p>
-            <p class="tweet-text">Let's make some pasta! </p>
-          </div>
-        </div>
+        </div> -->
       </div>
       <div class="content-right">
         <h2 class="right-head">Who to follow</h2>
         <div class="suggested-profile">
-          <img src="./images/linguini.png" alt="Profile Picture">
+          <img src="./images/linguini.png" alt="Profile Picture" />
           <div>
-            <p class="username"><strong>Linguini</strong> <span style="color: gray;">@remy</span></p>
+            <p class="username">
+              <strong>Linguini</strong> <span style="color: gray">@remy</span>
+            </p>
             <button type="button"><b>Follow</b></button>
           </div>
         </div>
         <div class="suggested-profile">
-          <img src="./images/ratatouille.jpg" alt="Profile Picture">
+          <img src="./images/ratatouille.jpg" alt="Profile Picture" />
           <div>
-            <p class="username"><strong>CS110 TAs</strong> <span style="color: gray;">@cs</span></p>
+            <p class="username">
+              <strong>CS110 TAs</strong> <span style="color: gray">@cs</span>
+            </p>
             <button type="button"><b>Follow</b></button>
           </div>
         </div>
       </div>
     </div>
-    
-    
   </body>
 </html>

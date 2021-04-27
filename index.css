@@ -1,14 +1,11 @@
 /* Feel free to edit CSS of body if you'd like. We provide you the light gray background color and font family in the body styling */
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   background-color: #e6ecf0;
-  
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
-
-
 
 ul {
   box-sizing: border-box;
@@ -36,7 +33,7 @@ li a {
 }
 
 li a:hover {
-  border-bottom: 3px solid #4AB3F4;
+  border-bottom: 3px solid #4ab3f4;
 }
 
 .nav-center {
@@ -50,7 +47,6 @@ li a:hover {
   padding-top: 5px;
 }
 
-
 .nav-right button {
   margin: 3px 10px;
   border: none;
@@ -59,7 +55,7 @@ li a:hover {
   color: white;
   text-align: center;
   padding: 10px 18px;
-  background-color:#33a3ff;
+  background-color: #33a3ff;
   font-size: medium;
 }
 
@@ -71,12 +67,11 @@ li a:hover {
   display: none;
 }
 
-
 .content-wrapper {
   display: flex;
   justify-content: space-around;
   max-width: 1190px;
-  height: 600px;
+  height: auto;
   margin: 56px auto;
   /* border: 1px solid red; */
 }
@@ -144,9 +139,9 @@ li a:hover {
 
 .content-center {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   width: 580px;
-  height: 370px;
+  height: auto;
   margin: 0 5px;
   /* border: 1px solid red; */
   background-color: white;
@@ -155,7 +150,8 @@ li a:hover {
 .tweet {
   display: flex;
   border-bottom: 1px solid #e6ecf0;
-  min-height: 51px;
+  /* Had this from lab1 but getting rid of it fixes spacing issues */
+  /* min-height: 51px; */
 }
 
 .tweet img {
@@ -169,7 +165,7 @@ li a:hover {
   margin: 10px 0 0;
 }
 .tweet-text {
-  margin: 8px 0 16px;
+  margin: 8px 5px 16px 0;
 }
 
 .content-right {
@@ -206,7 +202,6 @@ li a:hover {
   font-size: medium;
   color: #33a3ff;
 }
-
 
 @media screen and (max-width: 1200px) {
   .content-right {
