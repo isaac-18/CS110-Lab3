@@ -45,7 +45,16 @@ function refreshTweets(data) {
 
             userInfo = document.createElement('p');
             userInfo.className = 'username';
-            userInfo.appendChild(document.createTextNode(tweet.user['name']));
+            nameStrong = document.createElement('strong');
+            nameStrong.appendChild(document.createTextNode(tweet.user['name']));
+            userInfo.appendChild(nameStrong);
+
+            // Need to include date in this
+            handleAndDate = document.createElement('span');
+            handleAndDate.appendChild(document.createTextNode('@' + tweet.user['screen_name']))
+            handleAndDate.style.color = 'gray';
+            userInfo.appendChild(handleAndDate);
+
             tweetDetails.appendChild(userInfo);
 
 
