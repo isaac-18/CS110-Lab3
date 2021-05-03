@@ -164,6 +164,11 @@ li a:hover {
 .username {
   margin: 10px 0 0;
 }
+
+.username strong {
+  margin: 0 5px 0 0;
+}
+
 .tweet-text {
   margin: 8px 5px 16px 0;
 }
