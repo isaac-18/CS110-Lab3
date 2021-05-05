@@ -147,6 +147,12 @@ li a:hover {
   background-color: white;
 }
 
+.search-and-pause {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+}
+
 .tweet {
   display: flex;
   border-bottom: 1px solid #e6ecf0;

@@ -10,7 +10,7 @@
     <title>Twitter page</title>
     <!--temporary-->
   </head>
-  <body>
+  <body onload="ping();">
     <div class="navbar" role="navigation">
       <a class="skip-link" href="#tweet-container">Jump to tweet-container</a>
       <ul>
@@ -71,7 +71,15 @@
           </p>
         </div>
       </div>
-      <div class="content-center" id="tweet-container" role="main">
+      <div class="content-center" role="main">
+        <div class="search-and-pause">
+          <input id="searchBar" type="search" placeholder="Search in tweets" />
+          <div class="feed-checkbox">
+            <input type="checkbox" id="pauseFeed" name="pauseFeed" />
+            <label for="pauseFeed"> Pause/Unpause Feed</label>
+          </div>
+        </div>
+        <div id="tweet-container"></div>
         <!-- <div class="tweet">
           <img src="./images/ratatouille.jpg" alt="Profile Picture" />
           <div class="tweet-details">
