@@ -1,7 +1,6 @@
 const url = "http://ec2-54-219-224-129.us-west-1.compute.amazonaws.com:2000/feed/random?q=weather";
 
-// Stores string representation of id since int representation (64) is greater than JS limits (53)
-// See links for more: 
+// Stores string representation of id since int representation (64) is greater than JS limits (53):
 // https://developer.twitter.com/en/docs/twitter-api/v1/data-dictionary/object-model/tweet
 // https://developer.twitter.com/en/docs/twitter-ids
 var tweetIDs = [];
@@ -11,8 +10,6 @@ let searchString = "";
 
 const handleSearch = event => {
     searchString = event.target.value.trim().toLowerCase();
-    // you may want to update the displayed HTML here too
-    console.log(searchString);
     displayTweets();
 }
 
@@ -34,7 +31,6 @@ function refreshTweets(data) {
             .then((data) => {
                 // do something with data
                 statuses = data.statuses;
-                console.log(statuses.length);
                 statuses.forEach((tweet) => {
                     if (!tweetIDs.includes(tweet.id_str)) {
                         tweetIDs.push(tweet.id_str);
@@ -53,6 +49,11 @@ function refreshTweets(data) {
     }
 }
 
+/**
+ * Checks if tweet contains search string
+ * @param {*} item 
+ * @returns {boolean} Returns true if the tweet object's text contains the search string
+ */
 function filterBySearch(item) {
     if (item.text.toLowerCase().includes(searchString)) {
         return true;
@@ -63,8 +64,8 @@ function filterBySearch(item) {
 function displayTweets() {
     const tweetContainer = document.getElementById('tweet-container');
 
+    // Adds all tweet objects containing search to new array 
     filteredTweets = tweetObjects.filter(filterBySearch);
-    console.log(filteredTweets);
 
     // Sort tweets based on id. See link for how Twitter ids work and why we can use them to sort.
     // https://developer.twitter.com/en/docs/twitter-ids
@@ -80,14 +81,16 @@ function displayTweets() {
         tweetDiv = document.createElement('div');
         tweetDiv.className = 'tweet';
 
+        // Creates profile pic image element
         profilePic = document.createElement('img');
         profilePic.src = tweet.user['profile_image_url_https'];
-        // profilePic.onerror = function () {
-        //     profilePic.onerror = ''
-        //     profilePic.src = './images/ratatouille.jpg';
-        //     console.log('Error with pfp: ' + tweet.user['profile_image_url_https']);
-        // }
         tweetDiv.appendChild(profilePic);
+
+        // If pfp url is invalid, replaces it with default Remy pic
+        profilePic.onerror = function () {
+            this.src = './images/ratatouille.jpg';
+            console.log('Error with pfp using default.');
+        }.bind(profilePic);
 
         tweetDetails = document.createElement('div');
         tweetDetails.className = 'tweet-details';
@@ -108,6 +111,7 @@ function displayTweets() {
 
         tweetDetails.appendChild(userInfo);
 
+        // Add tweet text to tweet div
         tweetText = document.createElement('p');
         tweetText.className = 'tweet-text';
         tweetText.appendChild(document.createTextNode(tweet.text));
