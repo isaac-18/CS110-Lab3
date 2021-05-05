@@ -9,21 +9,15 @@ var tweetObjects = [];
 var intervalID;
 let searchString = "";
 
-// function ping() {
-//     fetch(url)
-//         .then((res) => res.json())
-//         .then((data) => {
-//             // do something with data
-//             // console.log(data);
-//             refreshTweets(data);
-//         })
-//         .catch((err) => {
-//             // error catching
-//             console.log(err);
-//         });
-// }
+const handleSearch = event => {
+    searchString = event.target.value.trim().toLowerCase();
+    // you may want to update the displayed HTML here too
+    console.log(searchString);
+    displayTweets();
+}
 
 function ping() {
+    document.getElementById("searchBar").addEventListener("input", handleSearch);
     intervalID = setInterval(refreshTweets, 5000);
 }
 
@@ -33,7 +27,7 @@ function pauseFeed() {
 
 
 function refreshTweets(data) {
-    // Only fetch is box is not checked
+    // Only fetch if box is not checked
     if (!document.getElementById("pauseFeed").checked) {
         fetch(url)
             .then((res) => res.json())
@@ -59,12 +53,22 @@ function refreshTweets(data) {
     }
 }
 
+function filterBySearch(item) {
+    if (item.text.toLowerCase().includes(searchString)) {
+        return true;
+    }
+    return false;
+}
+
 function displayTweets() {
     const tweetContainer = document.getElementById('tweet-container');
 
+    filteredTweets = tweetObjects.filter(filterBySearch);
+    console.log(filteredTweets);
+
     // Sort tweets based on id. See link for how Twitter ids work and why we can use them to sort.
     // https://developer.twitter.com/en/docs/twitter-ids
-    sortedTweets = tweetObjects.sort(function (a, b) { return a.id - b.id })
+    sortedTweets = filteredTweets.sort(function (a, b) { return a.id - b.id })
 
     // Clears all tweets to redisplay 
     while (tweetContainer.firstChild) {
@@ -73,7 +77,6 @@ function displayTweets() {
 
     // Display sorted tweets
     sortedTweets.forEach((tweet) => {
-        // Populating stuff. Consider making this a function.
         tweetDiv = document.createElement('div');
         tweetDiv.className = 'tweet';
 
@@ -89,22 +92,21 @@ function displayTweets() {
         tweetDetails = document.createElement('div');
         tweetDetails.className = 'tweet-details';
 
+        // Creates div for username
         userInfo = document.createElement('p');
         userInfo.className = 'username';
         nameStrong = document.createElement('strong');
         nameStrong.appendChild(document.createTextNode(tweet.user['name']));
         userInfo.appendChild(nameStrong);
 
-        // Need to include date in this
+        // Creates user handle and formats date
         handleAndDate = document.createElement('span');
         date = moment(tweet.created_at, 'YYYY-MM-DDTHH:mm:s').format('MMM D YY h:m A');
-        console.log(date);
         handleAndDate.appendChild(document.createTextNode('@' + tweet.user['screen_name'] + '  ' + date))
         handleAndDate.style.color = 'gray';
         userInfo.appendChild(handleAndDate);
 
         tweetDetails.appendChild(userInfo);
-
 
         tweetText = document.createElement('p');
         tweetText.className = 'tweet-text';
@@ -113,8 +115,7 @@ function displayTweets() {
 
         tweetDiv.appendChild(tweetDetails);
 
-        // tweetContainer.appendChild(tweetDiv);
+        // Adds new tweet to page like a stack
         tweetContainer.insertAdjacentElement('afterbegin', tweetDiv);
-        // document.getElementById('searchBar').insertAdjacentElement('afterend', tweetDiv);
     });
 }
